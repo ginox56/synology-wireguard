@@ -1,2 +1,2 @@
 FROM alpine
-COPY ./artifacts /result_spk
+RUN cp -r /artifacts /result_spk
