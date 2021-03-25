@@ -1,4 +1,4 @@
-FROM ubuntu:latest
+FROM ubuntu:latest AS builder
 
 VOLUME [ "/toolkit_tarballs" ]
 
@@ -10,3 +10,9 @@ RUN apt-get update \
 COPY . /source/WireGuard
 
 ENTRYPOINT exec /source/WireGuard/build.sh
+
+FROM build AS built
+RUN /source/WireGuard/build.sh
+
+FROM alpine
+COPY --from=built /result_spk /result_spk
