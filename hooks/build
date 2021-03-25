@@ -6,5 +6,13 @@ if [ "$DOCKER_TAG" = "latest" ]
 then
   docker build . -t "${IMAGE_NAME}"
 else
+  docker run \
+      --rm \
+      --privileged \
+      --env PACKAGE_ARCH=$arch \
+      --env DSM_VER=$VER \
+      -v $(pwd)/artifacts:/result_spk \
+      -v $(pwd)/toolkit_tarballs:/toolkit_tarballs \
+      "$DOCKER_REPO"
   docker build . --build-arg PACKAGE_ARCH="${PACKAGE_ARCH}" --build-arg DSM_VER="${DSM_VER}" -t "${IMAGE_NAME}" --privileged
 fi
