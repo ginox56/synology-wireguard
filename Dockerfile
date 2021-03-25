@@ -11,7 +11,7 @@ COPY . /source/WireGuard
 
 ENTRYPOINT exec /source/WireGuard/build.sh
 
-FROM build AS built
+FROM builder AS built
 RUN /source/WireGuard/build.sh
 
 FROM alpine
