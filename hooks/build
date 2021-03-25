@@ -9,10 +9,11 @@ else
   docker run \
       --rm \
       --privileged \
-      --env PACKAGE_ARCH=$arch \
-      --env DSM_VER=$VER \
+      --env PACKAGE_ARCH="${PACKAGE_ARCH}" \
+      --env DSM_VER="${DSM_VER}" \
       -v $(pwd)/artifacts:/result_spk \
       -v $(pwd)/toolkit_tarballs:/toolkit_tarballs \
+      -t \
       "$DOCKER_REPO"
   docker build . --build-arg PACKAGE_ARCH="${PACKAGE_ARCH}" --build-arg DSM_VER="${DSM_VER}" -t "${IMAGE_NAME}" --privileged
 fi
