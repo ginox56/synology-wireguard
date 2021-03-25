@@ -1,0 +1,10 @@
+#!/bin/sh
+PACKAGE_ARCH=$(echo "$DOCKER_TAG" | cut -d "-" -f1)
+DSM_VER=$(echo "$DOCKER_TAG" | cut -d "-" -f2)
+
+if [ "$DOCKER_TAG" = "latest" ]
+then
+  docker build . -t "${IMAGE_NAME}"
+else
+  docker build . --build-arg PACKAGE_ARCH="${PACKAGE_ARCH}" --build-arg DSM_VER="${DSM_VER}" -t "${IMAGE_NAME}"
+fi
