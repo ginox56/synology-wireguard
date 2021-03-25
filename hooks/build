@@ -11,7 +11,7 @@ else
       --privileged \
       --env PACKAGE_ARCH="${PACKAGE_ARCH}" \
       --env DSM_VER="${DSM_VER}" \
-      -v $(pwd)/artifacts:/result_spk \
+      -v $(pwd)/release:/result_spk \
       -v $(pwd)/toolkit_tarballs:/toolkit_tarballs \
       -t \
       "$DOCKER_REPO"
