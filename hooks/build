@@ -15,5 +15,7 @@ else
       -v $(pwd)/toolkit_tarballs:/toolkit_tarballs \
       -t \
       "$DOCKER_REPO"
+  pwd
+  ls -al
   docker build -t "${IMAGE_NAME}" -f Dockerfile.release .
 fi
