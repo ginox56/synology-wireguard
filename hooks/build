@@ -17,5 +17,5 @@ else
       "$DOCKER_REPO"
   pwd
   ls -al
-  docker build -t "${IMAGE_NAME}" -f Dockerfile.release .
+  docker build -v $(pwd)/artifacts:/artifacts -t "${IMAGE_NAME}" -f Dockerfile.release .
 fi
