@@ -15,5 +15,5 @@ else
       -v $(pwd)/toolkit_tarballs:/toolkit_tarballs \
       -t \
       "$DOCKER_REPO"
-  docker build . -v $(pwd)/artifacts:/result_spk -t "${IMAGE_NAME}"
+  docker build -v $(pwd)/artifacts:/result_spk -t "${IMAGE_NAME}" -f Dockerfile.release .
 fi
