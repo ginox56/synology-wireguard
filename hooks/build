@@ -16,6 +16,7 @@ else
       -t \
       "$DOCKER_REPO"
   pwd
+  echo "$DOCKERFILE_PATH"
   ls -al
-  docker build -v $(pwd)/artifacts:/artifacts -t "${IMAGE_NAME}" -f Dockerfile.release .
+  docker build -t "${IMAGE_NAME}" -f Dockerfile.release .
 fi
