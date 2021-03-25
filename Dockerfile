@@ -8,7 +8,7 @@ VOLUME [ "/toolkit_tarballs" ]
 ENV IS_IN_CONTAINER 1
 
 RUN apt-get update \
- && apt-get -qy install git python3 wget ca-citertificates
+ && apt-get -qy install git python3 wget ca-certificates
 
 COPY . /source/WireGuard
 
